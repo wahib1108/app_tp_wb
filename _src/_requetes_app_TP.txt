@@ -1,0 +1,39 @@
+CREATE TABLE chambre(
+	numChambre INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+	prix INT, 
+	nbLits INT, 
+	nbPers INT, 
+	confort VARCHAR(255), 
+	image VARCHAR(255), 
+	description VARCHAR(255)
+);
+__________________________________________
+
+CREATE TABLE client(
+	numClient INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+	nom VARCHAR(255), 
+	prenom VARCHAR(255), 
+	tel VARCHAR(255),
+	adresse VARCHAR(255)
+);
+__________________________________________
+
+CREATE TABLE reservation(
+	numClient INT, 
+	numChambre INT, 
+	dateArrivee timestamp, 
+	dateDepart DATE,
+	FOREIGN KEY (numClient) REFERENCES client(numClient),
+	FOREIGN KEY (numChambre) REFERENCES chambre(numChambre)
+);
+__________________________________________
+
+CREATE TABLE utilisateurs(
+	id_util INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+	login VARCHAR(255), 
+	pass VARCHAR(255), 
+	role INT
+);
+
+
+
